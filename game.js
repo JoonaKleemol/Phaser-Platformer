@@ -1,5 +1,5 @@
 // Initialize the Phaser Game object and set default game window size
-const game = new Phaser.Game(850, 320, Phaser.AUTO, '', {
+const game = new Phaser.Game(850, 320, Phaser.AUTO, 'game', {
   preload: preload,
   create: create,
   update: update })
@@ -27,7 +27,8 @@ function preload () {
   game.load.image('diamond', 'diamond.png')*/
   game.load.tilemap('map', 'testmap3.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tileset', 'tileset.png', 16, 16);
-  game.load.spritesheet('runner', 'adventurer-v1.5-Sheet.png', 50, 37)
+  game.load.spritesheet('runner', 'adventurer-v1.5-Sheet.png', 50, 37);
+  game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
   //game.load.spritesheet('runner', 'run.png', 55.5, 76)
 }
@@ -45,7 +46,8 @@ function create () {
   text = game.add.text(10, 10, '0', {fill: "#ffffff"});
   text.fixedToCamera = true;
   text.cameraOffset.setTo(20, 20);
-  text.fontSize = 20;
+  text.fontSize = 17;
+  text.font = 'Orbitron';
 
 
   map.setTileIndexCallback(178, function()
@@ -74,7 +76,7 @@ function create () {
   player.body.collideWorldBounds = true
   player.anchor.setTo(0.5, 0.5)
   player.body.velocity.x = 0
-  player.body.setSize(25,37)
+  player.body.setSize(20,28,0,4)
  
     //  Player animations
   player.animations.add('left', [8,9,10,11,12,13], 10, true);
@@ -92,13 +94,14 @@ function create () {
   // Camera follows the player sprite
   game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER, 0.1, 0.1);
   style = 'STYLE_PLATFORMER';
-
+  spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  restart = game.input.keyboard.addKey(Phaser.Keyboard.R);
   startTime = game.time.now
 }
 
 function update () {
 
-  //game.debug.body(player);
+  game.debug.body(player);
   game.scale.pageAlignHorizontally = true;
   game.scale.pageAlignVertically = true;
   game.scale.refresh();
@@ -197,7 +200,7 @@ cursors.up.onDown.add(jumpCheck);
 
     }
 
-cursors.down.onDown.add(dash)
+spacebar.onDown.add(dash)
 function dash()
 {
 	
@@ -210,32 +213,48 @@ function dash()
 			player.body.velocity.x = 500;
 			player.body.velocity.y = 0;
 			player.play('dash');
-			cooldown = game.time.time + 1500;
+			cooldown = game.time.time + 1000;
 		}
 		else if (direction == -1 && player.body.onFloor()){
 			time = game.time.time + 250;
 			player.body.velocity.x = -500;
 			player.body.velocity.y = 0;
 			player.play('dash');
-			cooldown = game.time.time + 1500;
+			cooldown = game.time.time + 1000;
 		}
-		else if (direction == 1 && !player.body.onFloor()){
+		else if (direction == 1 && !player.body.onFloor() && player.body.velocity.y < 0){
 			time = game.time.time + 250;
 			player.body.velocity.x = 500;
-			player.body.velocity.y = -100;
 			player.play('dash');
-			cooldown = game.time.time + 1500;
+			cooldown = game.time.time + 1000;
 		}
-		else if (direction == -1 && !player.body.onFloor()){
+		else if (direction == -1 && !player.body.onFloor() && player.body.velocity.y < 0){
+			time = game.time.time + 250;
+			player.body.velocity.x = -500;
+			player.play('dash');
+			cooldown = game.time.time + 1000;
+		}
+		else if (direction == -1 && !player.body.onFloor() && player.body.velocity.y >= 0){
 			time = game.time.time + 250;
 			player.body.velocity.x = -500;
 			player.body.velocity.y = -100;
 			player.play('dash');
-			cooldown = game.time.time + 1500;
+			cooldown = game.time.time + 1000;
 		}
-		
+		else if (direction == 1 && !player.body.onFloor() && player.body.velocity.y >= 0){
+			time = game.time.time + 250;
+			player.body.velocity.x = 500;
+			player.body.velocity.y = -100;
+			player.play('dash');
+			cooldown = game.time.time + 1000;
+		}
 
 	}
 }
 
+restart.onDown.add(restartGame)
+function restartGame()
+{
+	game.state.start(game.state.current);
+}
 }
