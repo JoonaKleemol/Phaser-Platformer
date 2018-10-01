@@ -101,7 +101,7 @@ function create () {
 
 function update () {
 
-  game.debug.body(player);
+  //game.debug.body(player);
   game.scale.pageAlignHorizontally = true;
   game.scale.pageAlignVertically = true;
   game.scale.refresh();
