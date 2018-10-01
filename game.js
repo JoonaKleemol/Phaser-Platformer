@@ -1,5 +1,5 @@
 // Initialize the Phaser Game object and set default game window size
-const game = new Phaser.Game(850, 320, Phaser.CANVAS, '', {
+const game = new Phaser.Game(850, 320, Phaser.AUTO, '', {
   preload: preload,
   create: create,
   update: update })
@@ -15,13 +15,17 @@ var dash;
 var time = 0;
 var direction = 1;
 var cooldown = 0;
+var startTime = 0;
+var endTime = 0;
+var text = null;
+var textReflect = null;
 
 function preload () {
   // Load & Define our game assets
   /*game.load.image('sky', 'sky.png')
   game.load.image('ground', 'platform.png')
   game.load.image('diamond', 'diamond.png')*/
-  game.load.tilemap('map', 'testmap2.json', null, Phaser.Tilemap.TILED_JSON);
+  game.load.tilemap('map', 'testmap3.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tileset', 'tileset.png', 16, 16);
   game.load.spritesheet('runner', 'adventurer-v1.5-Sheet.png', 50, 37)
 
@@ -35,22 +39,37 @@ function create () {
   map = game.add.tilemap('map', 16, 16);
   map.addTilesetImage('tileset', 'tileset');
   layer = map.createLayer('Tile Layer 1');
-  map.setCollisionBetween(27,29);
+  map.setCollisionBetween(26,175);
+  map.setCollisionBetween(187,294);
+
+  text = game.add.text(10, 10, '0', {fill: "#ffffff"});
+  text.fixedToCamera = true;
+  text.cameraOffset.setTo(20, 20);
+  text.fontSize = 20;
+
+
+  map.setTileIndexCallback(178, function()
+  {
+  	endTime = (game.time.now - startTime) / 1000;
+  	text = endTime.toString();
+  }, this);
+
   layer.resizeWorld();
   this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 	//this.scale.pageAlignHorizontally = true;
   this.scale.pageAlignVertically = true;
   this.scale.pageAlignHorizontally = true;
   this.scale.setScreenSize( true );
-  
     // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'runner')
 
     //  We need to enable physics on the player
+  game.physics.arcade.TILE_BIAS = 32;
   game.physics.arcade.enable(player)
 
+
     //  Player physics properties. Give the little guy a slight bounce.
-  game.debug.body(player);
+  
   player.body.gravity.y = 1200
   player.body.collideWorldBounds = true
   player.anchor.setTo(0.5, 0.5)
@@ -73,18 +92,27 @@ function create () {
   // Camera follows the player sprite
   game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER, 0.1, 0.1);
   style = 'STYLE_PLATFORMER';
+
+  startTime = game.time.now
 }
 
 function update () {
+
+  //game.debug.body(player);
   game.scale.pageAlignHorizontally = true;
   game.scale.pageAlignVertically = true;
   game.scale.refresh();
+  
+  text.text = ((game.time.now - startTime) / 1000).toFixed(2);
     //  We want the player to stop when not moving
   if (game.time.time > time)
   {
-  player.body.velocity.x = 0
+  	player.body.velocity.x = 0
   }
-  game.debug.spriteInfo(player, 32, 32);
+  if (player.body.onFloor())
+  {
+  	player.body.velocity.y = 0
+  }
 
 	//Collisions for the player
   game.physics.arcade.collide(player, layer)
