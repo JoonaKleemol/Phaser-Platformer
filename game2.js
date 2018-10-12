@@ -1,7 +1,7 @@
 // Initialize the Phaser Game object and set default game window size
 
 
-function startGame(){
+function startGame2(){
 	
 	const game = new Phaser.Game(850, 320, Phaser.AUTO, 'game', {
 	preload: preload,
@@ -24,14 +24,13 @@ var startTime = 0;
 var endTime = 0;
 var text = null;
 var textReflect = null;
-var mapFile = 'testmap3.json';
 
 function preload () {
   // Load & Define our game assets
   /*game.load.image('sky', 'sky.png')
   game.load.image('ground', 'platform.png')
   game.load.image('diamond', 'diamond.png')*/
-  game.load.tilemap('map', mapFile, null, Phaser.Tilemap.TILED_JSON);
+  game.load.tilemap('map', 'testmap2.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tileset', 'tileset.png', 16, 16);
   game.load.spritesheet('runner', 'adventurer-v1.5-Sheet.png', 50, 37);
   game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
@@ -268,6 +267,7 @@ function restartGame()
 esc.onDown.add(quitGame)
 function quitGame()
 {	
+
 	var x = document.getElementById("game");
     x.style.display = "none";
 	var x = document.getElementById("pauseMenu");
