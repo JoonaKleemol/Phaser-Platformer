@@ -2,70 +2,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Game</title>
+    <title>Platformer</title>
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="gameCss.css"> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="phaser.min.js"></script>
+    <script type="text/javascript" src="js/boot.js"></script>
+    <script type="text/javascript" src="js/load.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/level1.js"></script>
+    <script type="text/javascript" src="js/level2.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
 	
 	
   </head>
   <body>
-	
-	<div id="mainMenu">
-	<button class="menuButtons" id="levelsButton">Levels</button>
-	<button class="menuButtons" id="leaderboardButton">Leaderboard</button>
-	</div>
-	
-	<div id="levels">
-		<button id="level1" onclick="startGame()">Level 1.</button>	
-		<button id="level2" onclick="startGame2()">Level 2.</button>	
-	</div>
-	
-	<div id="game">
-	<script type="text/javascript" src="game.js"></script>
-	<script type="text/javascript" src="game2.js"></script>
-	</div>
-	
-	<div id="pauseMenu">
-		<button onclick="resumeGame()">Resume</button>	
-		<button id="backToMenu" onclick="window.location.reload()">Back to main menu</button>
-	</div>
-	
-	<script> 
-	$(document).ready(function(){
-		$("#levelsButton").click(function(){
-			$("#levels").fadeIn();
-			$("#mainMenu").hide();
-		});
-	});
-	
-	$("#level1").click(function(){
-		$("#game").show();	
-		$("#levels").hide();		
-	});
-	
-	$("#level2").click(function(){
-		$("#game").show();	
-		$("#levels").hide();		
-	});
-	
-	$("#backToMenu").click(function(){
-		$("#pauseMenu").hide();	
-		$("#mainMenu").show();
-	});
-	
-	function resumeGame()
-	{	
-	var x = document.getElementById("game");
-    x.style.display = "block";
-	var x = document.getElementById("pauseMenu");
-    x.style.display = "none";
-	 
-	}
-
-
-	</script>
-	
-</script></body>
-</html>
+	<div id="gameDiv"></div>
+  </body>
+  </html>
