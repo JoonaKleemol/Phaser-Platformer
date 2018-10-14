@@ -235,7 +235,7 @@ function dash()
 restart.onDown.add(restartGame)
 function restartGame()
 {
-  this.game.state.start(this.game.state.current);
+  this.game.state.start('pauseMenu');
 
 }
 

@@ -7,7 +7,7 @@ var menuState = {
     var nameLabel = game.add.text(80, 80, 'Platformer',
       { font: '50px Arial', fill: '#fff'});
 
-    var startLabel = game.add.text(80, 180, 'Press the "W" key to start',
+    var startLabel = game.add.text(80, 180, 'Press the "R" key to start level 1 or "W" to start level 2',
       { font: '25px Arial', fill: '#fff'});
 
     wkey = game.input.keyboard.addKey(Phaser.Keyboard.W);
