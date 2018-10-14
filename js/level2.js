@@ -1,5 +1,3 @@
-let cursors
-let player
 var jumpCount
 var map;
 var layer;
@@ -11,14 +9,14 @@ var cooldown = 0;
 var startTime = 0;
 var endTime = 0;
 var text = null;
-var level1State = {
+var level2State = {
 
 
  create: function() {  // Load & Define our game assets
 
     //  We're going to be using physics, so enable the Arcade Physics system
   game.stage.backgroundColor = '#7EC0EE';
-  map = game.add.tilemap('map', 16, 16);
+  map = game.add.tilemap('map2', 16, 16);
   map.addTilesetImage('tileset', 'tileset');
   layer = map.createLayer('Tile Layer 1');
   map.setCollisionBetween(26,175);
@@ -78,7 +76,6 @@ var level1State = {
   spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   restart = game.input.keyboard.addKey(Phaser.Keyboard.R);
   esc = game.input.keyboard.addKey(Phaser.Keyboard.E);
-  rest = game.input.keyboard.addKey(Phaser.Keyboard.W);
   startTime = game.time.now
 },
   
@@ -238,7 +235,8 @@ function dash()
 restart.onDown.add(restartGame)
 function restartGame()
 {
-	game.state.start(game.state.current);
+  this.game.state.start(this.game.state.current);
+
 }
 
 

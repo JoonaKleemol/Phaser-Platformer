@@ -14,6 +14,7 @@ var text = null;
 var level1State = {
 
 
+
  create: function() {  // Load & Define our game assets
 
     //  We're going to be using physics, so enable the Arcade Physics system
@@ -78,7 +79,6 @@ var level1State = {
   spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   restart = game.input.keyboard.addKey(Phaser.Keyboard.R);
   esc = game.input.keyboard.addKey(Phaser.Keyboard.E);
-  rest = game.input.keyboard.addKey(Phaser.Keyboard.W);
   startTime = game.time.now
 },
   
@@ -238,7 +238,8 @@ function dash()
 restart.onDown.add(restartGame)
 function restartGame()
 {
-	game.state.start(game.state.current);
+	this.game.state.start('pauseMenu');
+
 }
 
 
