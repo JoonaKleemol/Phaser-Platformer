@@ -232,11 +232,12 @@ function dash()
 	}
 }
 
-restart.onDown.add(restartGame)
+pause.onDown.addOnce(restartGame)
 function restartGame()
 {
+  rkey = game.input.keyboard.addKey(Phaser.Keyboard.R);
+  rkey.onDown.addOnce(pauseState.restartLevel2, this);
   this.game.state.start('pauseMenu');
-
 }
 
 
