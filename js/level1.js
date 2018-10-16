@@ -36,6 +36,10 @@ var level1State = {
   {
   	endTime = (game.time.now - startTime) / 1000;
   	text = endTime.toString();
+
+    rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
+    rKey.onDown.addOnce(winState.restartLevel1, this);
+    this.game.state.start('winState');
   }, this);
 
   layer.resizeWorld();
@@ -71,7 +75,7 @@ var level1State = {
 
     //  And bootstrap our controls
   cursors = game.input.keyboard.createCursorKeys()
-  //SPACEBAR = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+ 
 
   // Camera follows the player sprite
   game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER, 0.1, 0.1);
@@ -237,8 +241,8 @@ function dash()
 pause.onDown.addOnce(restartGame)
 function restartGame()
 {
-  rkey = game.input.keyboard.addKey(Phaser.Keyboard.R);
-  rkey.onDown.addOnce(pauseState.restartLevel1, this);
+  rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
+  rKey.onDown.addOnce(pauseState.restartLevel1, this);
 	this.game.state.start('pauseMenu');
 }
 

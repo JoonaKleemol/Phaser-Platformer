@@ -235,8 +235,8 @@ function dash()
 pause.onDown.addOnce(restartGame)
 function restartGame()
 {
-  rkey = game.input.keyboard.addKey(Phaser.Keyboard.R);
-  rkey.onDown.addOnce(pauseState.restartLevel2, this);
+  rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
+  rKey.onDown.addOnce(pauseState.restartLevel2, this);
   this.game.state.start('pauseMenu');
 }
 
