@@ -77,8 +77,7 @@ var level1State = {
   game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER, 0.1, 0.1);
   style = 'STYLE_PLATFORMER';
   spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-  restart = game.input.keyboard.addKey(Phaser.Keyboard.R);
-  esc = game.input.keyboard.addKey(Phaser.Keyboard.E);
+  pause = game.input.keyboard.addKey(Phaser.Keyboard.P);
   startTime = game.time.now
 },
   
@@ -235,11 +234,12 @@ function dash()
 	}
 }
 
-restart.onDown.add(restartGame)
+pause.onDown.addOnce(restartGame)
 function restartGame()
 {
+  rkey = game.input.keyboard.addKey(Phaser.Keyboard.R);
+  rkey.onDown.addOnce(pauseState.restartLevel1, this);
 	this.game.state.start('pauseMenu');
-
 }
 
 
