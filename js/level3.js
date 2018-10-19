@@ -79,7 +79,6 @@ var level3State = {
   game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER, 0.1, 0.1);
   style = 'STYLE_PLATFORMER';
   spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-  restart = game.input.keyboard.addKey(Phaser.Keyboard.R);
   esc = game.input.keyboard.addKey(Phaser.Keyboard.E);
   rest = game.input.keyboard.addKey(Phaser.Keyboard.W);
   pause = game.input.keyboard.addKey(Phaser.Keyboard.P);

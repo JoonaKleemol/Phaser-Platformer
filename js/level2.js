@@ -84,7 +84,7 @@ var level2State = {
   restart = game.input.keyboard.addKey(Phaser.Keyboard.R);
   esc = game.input.keyboard.addKey(Phaser.Keyboard.E);
   rest = game.input.keyboard.addKey(Phaser.Keyboard.W);
-    pause = game.input.keyboard.addKey(Phaser.Keyboard.P);
+  pause = game.input.keyboard.addKey(Phaser.Keyboard.P);
   startTime = game.time.now
 },
   

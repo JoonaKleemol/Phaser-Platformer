@@ -23,17 +23,19 @@ var menuState = {
 
   level1: function() {
     sKey.onDown.removeAll();
+    dKey.onDown.removeAll();
     game.state.start('level1');
-
   }, 
 
   level2: function() {
     aKey.onDown.removeAll();
+    dKey.onDown.removeAll();
     game.state.start('level2');
   },
 
   level3: function() {
     aKey.onDown.removeAll();
+    sKey.onDown.removeAll();
     game.state.start('level3');
   },     
 
