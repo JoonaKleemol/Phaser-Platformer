@@ -10,7 +10,10 @@ var menuState = {
     
     var startLabel = game.add.text(120, 180, 'Press "A" for level 1, "S" for level 2 or "D" for level 3',
       { font: '25px Arial', fill: '#fff'});
-
+    var instructionsLabel = game.add.text(10, 280, 'Instructions: use arrows to move, double tap up for double jump, space for dash, and p for pause',
+      { font: '15px Arial', fill: '#fff'});
+    var instructions2Label = game.add.text(10, 305, 'This is a speedrun game, so pause doesnt stop the timer',
+      { font: '10px Arial', fill: '#fff'});    
     aKey = game.input.keyboard.addKey(Phaser.Keyboard.A);
     sKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
     dKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
