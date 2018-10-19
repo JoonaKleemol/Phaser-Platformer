@@ -8,6 +8,7 @@ game.state.add('menu', menuState);
 game.state.add('pauseMenu', pauseState);
 game.state.add('level1', level1State);
 game.state.add('level2', level2State);
+game.state.add('level3', level3State);
 game.state.add('winState', winState);
 
 game.state.start('boot');

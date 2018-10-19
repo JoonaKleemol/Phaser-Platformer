@@ -8,14 +8,16 @@ var menuState = {
     var nameLabel = game.add.text(300, 30, 'Platformer',
       { font: '50px Arial', fill: '#fff'});
     
-    var startLabel = game.add.text(120, 180, 'Press the "A" key to start level 1 or "S" to start level 2',
+    var startLabel = game.add.text(120, 180, 'Press "A" for level 1, "S" for level 2 or "D" for level 3',
       { font: '25px Arial', fill: '#fff'});
 
     aKey = game.input.keyboard.addKey(Phaser.Keyboard.A);
     sKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
+    dKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
 
     aKey.onDown.addOnce(this.level1, this);
     sKey.onDown.addOnce(this.level2, this);
+    dKey.onDown.addOnce(this.level3, this);
 
   },
 
@@ -28,7 +30,12 @@ var menuState = {
   level2: function() {
     aKey.onDown.removeAll();
     game.state.start('level2');
-  },   
+  },
+
+  level3: function() {
+    aKey.onDown.removeAll();
+    game.state.start('level3');
+  },     
 
      
 };

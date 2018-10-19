@@ -9,21 +9,19 @@ var cooldown = 0;
 var startTime = 0;
 var endTime = 0;
 var text = null;
-var level2State = {
+var level3State = {
 
 
  create: function() {  // Load & Define our game assets
 
     //  We're going to be using physics, so enable the Arcade Physics system
   game.stage.backgroundColor = '#7EC0EE';
-  map = game.add.tilemap('map2', 16, 16);
-  map.addTilesetImage('tileset', 'tileset2');
-  layer = map.createLayer('Tile Layer 2');
-  map.setCollisionBetween(16,58);
-  map.setCollisionBetween(68,74);
-  map.setCollisionBetween(80,84);
-  map.setCollisionBetween(68,74);
-  map.setCollisionBetween(100,124);
+  map = game.add.tilemap('map3', 16, 16);
+  map.addTilesetImage('tileset', 'tileset3');
+  layer = map.createLayer('Tile Layer 1');
+  map.setCollisionBetween(25,205);
+  map.setCollisionBetween(208,230);
+  map.setCollisionBetween(232,260);
 
   text = game.add.text(10, 10, '0', {fill: "#ffffff"});
   text.fixedToCamera = true;
@@ -32,13 +30,13 @@ var level2State = {
   text.font = 'Orbitron';
 
 
-  map.setTileIndexCallback(81, function()
+  map.setTileIndexCallback(40, function()
   {
     endTime = (game.time.now - startTime) / 1000;
     text = endTime.toString();
 
     rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
-    rKey.onDown.addOnce(winState.restartLevel2, this);
+    rKey.onDown.addOnce(winState.restartLevel3, this);
     this.game.state.start('winState');
   }, this);
 
@@ -49,7 +47,7 @@ var level2State = {
   this.scale.pageAlignHorizontally = true;
   this.scale.setScreenSize( true );
     // The player and its settings
-  player = game.add.sprite(10, 40, 'runner')
+  player = game.add.sprite(30, 350, 'runner')
 
     //  We need to enable physics on the player
   game.physics.arcade.TILE_BIAS = 32;
@@ -84,7 +82,7 @@ var level2State = {
   restart = game.input.keyboard.addKey(Phaser.Keyboard.R);
   esc = game.input.keyboard.addKey(Phaser.Keyboard.E);
   rest = game.input.keyboard.addKey(Phaser.Keyboard.W);
-    pause = game.input.keyboard.addKey(Phaser.Keyboard.P);
+  pause = game.input.keyboard.addKey(Phaser.Keyboard.P);
   startTime = game.time.now
 },
   
@@ -245,7 +243,7 @@ pause.onDown.addOnce(restartGame)
 function restartGame()
 {
   rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
-  rKey.onDown.addOnce(pauseState.restartLevel2, this);
+  rKey.onDown.addOnce(pauseState.restartLevel3, this);
   this.game.state.start('pauseMenu');
 }
 

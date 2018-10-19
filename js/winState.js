@@ -29,6 +29,11 @@ var winState = {
     game.state.start('level2');
   },
 
+  restartLevel3: function() {
+    mKey.onDown.removeAll();
+    game.state.start('level3');
+  },
+
   menu: function() {
     rKey.onDown.removeAll();
     pause.onDown.removeAll();
