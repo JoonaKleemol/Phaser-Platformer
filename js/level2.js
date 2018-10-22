@@ -3,6 +3,8 @@ var map;
 var layer;
 var tileset;
 var dash;
+var flag;
+var cloud;
 var time = 0;
 var direction = 1;
 var cooldown = 0;
@@ -25,11 +27,28 @@ var level2State = {
   map.setCollisionBetween(68,74);
   map.setCollisionBetween(100,124);
 
+  flag = game.add.sprite(1471, 1017, 'finishFlagBrown');
+    flag.scale.setTo(0.14, 0.14);
+
+  cloud = game.add.sprite(60, 90, 'cloud');
+    cloud.scale.setTo(0.15, 0.15);
+  cloud2 = game.add.sprite(200, 40, 'cloud');
+    cloud2.scale.setTo(0.12, 0.12);
+  cloud3 = game.add.sprite(500, 70, 'cloud');
+    cloud3.scale.setTo(0.13, 0.13);
+
+  cloud5 = game.add.sprite(800, 20, 'cloud');
+    cloud5.scale.setTo(0.15, 0.15);
+  cloud6 = game.add.sprite(1000, 60, 'cloud');
+    cloud6.scale.setTo(0.12, 0.12); 
+ 
+
   text = game.add.text(10, 10, '0', {fill: "#ffffff"});
   text.fixedToCamera = true;
   text.cameraOffset.setTo(20, 20);
   text.fontSize = 17;
   text.font = 'Orbitron';
+
 
 
   map.setTileIndexCallback(81, function()

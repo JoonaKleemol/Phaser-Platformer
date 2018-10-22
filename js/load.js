@@ -12,6 +12,9 @@ var loadState = {
   game.load.image('level1bg', 'img/level1bg.png');
   game.load.image('level2bg', 'img/level2bg.png');
   game.load.image('level3bg', 'img/level3bg.png');
+  game.load.image('finishFlag', 'img/flag.png');
+  game.load.image('finishFlagBrown', 'img/flagBrownBG.png');
+  game.load.image('cloud', 'img/cloud.png');
   game.load.spritesheet('runner', 'adventurer-v1.5-Sheet.png', 50, 37);
   game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 

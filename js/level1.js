@@ -5,6 +5,9 @@ var map;
 var layer;
 var tileset;
 var dash;
+var flag;
+var cloudGroup;
+var cloud;
 var time = 0;
 var direction = 1;
 var cooldown = 0;
@@ -25,7 +28,24 @@ var level1State = {
   map.setCollisionBetween(26,175);
   map.setCollisionBetween(187,294);
 
-  text = game.add.text(10, 10, '0', {fill: "#ffffff"});
+  flag = game.add.sprite(1545, 368, 'finishFlag');
+    flag.scale.setTo(0.13, 0.13);
+
+  cloud = game.add.sprite(60, 90, 'cloud');
+    cloud.scale.setTo(0.15, 0.15);
+  cloud2 = game.add.sprite(200, 40, 'cloud');
+    cloud2.scale.setTo(0.12, 0.12);
+  cloud3 = game.add.sprite(500, 70, 'cloud');
+    cloud3.scale.setTo(0.13, 0.13);
+  cloud4 = game.add.sprite(1550, 85, 'cloud');
+    cloud4.scale.setTo(0.14, 0.14);
+  cloud5 = game.add.sprite(800, 20, 'cloud');
+    cloud5.scale.setTo(0.15, 0.15);
+  cloud6 = game.add.sprite(1000, 60, 'cloud');
+    cloud6.scale.setTo(0.12, 0.12); 
+  cloud7 = game.add.sprite(1300, 30, 'cloud');
+    cloud7.scale.setTo(0.17, 0.17);                          
+    text = game.add.text(10, 10, '0', {fill: "#ffffff"});
   text.fixedToCamera = true;
   text.cameraOffset.setTo(20, 20);
   text.fontSize = 17;
@@ -48,9 +68,11 @@ var level1State = {
   this.scale.pageAlignVertically = true;
   this.scale.pageAlignHorizontally = true;
   this.scale.setScreenSize( true );
-    // The player and its settings
-  player = game.add.sprite(32, game.world.height - 150, 'runner')
 
+    // The player and its settings
+  player = game.add.sprite(32, game.world.height - 150, 'runner');
+
+  
     //  We need to enable physics on the player
   game.physics.arcade.TILE_BIAS = 32;
   game.physics.arcade.enable(player)
