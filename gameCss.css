@@ -1,20 +1,10 @@
-#levels {width: 400px;
-         height: 400px;
-		 background-color: black;
-		 display:none;
-		 margin: 150px auto;
-		 }
-		 
-#pauseMenu {width: 400px;
-			height: 800px;
+html {		margin: 0px;
+			padding: 0px;
 			background-color: black;
-			display:none;
-			margin: 150px auto;
-			}
+}
 
-#mainMenu {width: 400px;
-			height: 800px;
-			margin: 150px auto;
-			}	
+#gamediv {	margin: 0px;
+			padding 0px;
+}
 
 			

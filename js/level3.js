@@ -50,7 +50,7 @@ var level3State = {
   player = game.add.sprite(30, 350, 'runner')
 
     //  We need to enable physics on the player
-  game.physics.arcade.TILE_BIAS = 32;
+  game.physics.arcade.TILE_BIAS = 40;
   game.physics.arcade.enable(player)
 
 
