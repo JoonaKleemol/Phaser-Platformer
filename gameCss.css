@@ -3,6 +3,11 @@ html {		margin: 0px;
 			background-color: black;
 }
 
+body {		margin: 0px;
+			padding: 0px;
+		
+}
+
 #gamediv {	margin: 0px;
 			padding 0px;
 }
