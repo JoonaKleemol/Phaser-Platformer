@@ -16,6 +16,26 @@
     <script type="text/javascript" src="js/level3.js"></script>
     <script type="text/javascript" src="js/winState.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
+	 <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+<script>
+    var db = new Dexie("student_database");
+    
+    //db.delete();
+    
+    db.version(1).stores({
+        students: '++id, [Score+levelName]'
+    });
+
+    // Open it
+    db.open().catch(function (e) {
+        alert ("Open failed: " + e);
+    });
+    
+    // Clear old data from students
+	//db.students.clear();
+    // query it
+    db.students.orderBy("[Score+levelName]").each(function(student) {console.log(student.levelName+" "+student.Score)});
+</script>
 	
 	
   </head>
