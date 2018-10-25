@@ -44,7 +44,9 @@ var level1State = {
   cloud6 = game.add.sprite(1000, 60, 'cloud');
     cloud6.scale.setTo(0.12, 0.12); 
   cloud7 = game.add.sprite(1300, 30, 'cloud');
-    cloud7.scale.setTo(0.17, 0.17);                          
+    cloud7.scale.setTo(0.17, 0.17);
+    
+                         
     text = game.add.text(10, 10, '0', {fill: "#ffffff"});
   text.fixedToCamera = true;
   text.cameraOffset.setTo(20, 20);
@@ -70,6 +72,12 @@ var level1State = {
   this.scale.pageAlignHorizontally = true;
   this.scale.setScreenSize( true );
 
+this.cloudlonely = this.game.add.tileSprite(0,
+      this.game.world.height - this.game.cache.getImage('cloudlonely').height -200,
+      this.game.world.width,
+      this.game.cache.getImage('cloudlonely').height,
+      'cloudlonely'
+    );
     // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'runner');
 
@@ -109,6 +117,8 @@ var level1State = {
 },
   
 update: function() {
+
+  this.cloudlonely.tilePosition.x -= 0.55;
 	
   //game.debug.body(player);
   game.scale.pageAlignHorizontally = true;
