@@ -20,6 +20,9 @@ var level1State = {
 
  create: function() {  // Load & Define our game assets
 
+ menumusic.stop();
+  level1music = game.add.audio('level1m');
+  level1music.play();
     //  We're going to be using physics, so enable the Arcade Physics system
   game.stage.backgroundColor = '#7EC0EE';
   map = game.add.tilemap('map', 16, 16);
@@ -27,6 +30,8 @@ var level1State = {
   layer = map.createLayer('Tile Layer 1');
   map.setCollisionBetween(26,175);
   map.setCollisionBetween(187,294);
+
+  
 
   flag = game.add.sprite(1545, 368, 'finishFlag');
     flag.scale.setTo(0.13, 0.13);
@@ -62,6 +67,7 @@ var level1State = {
     rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
     rKey.onDown.addOnce(winState.restartLevel1, this);
 	  db.students.put({levelName: "Level 1", Score: endTime});
+	  level1music.stop();
     this.game.state.start('winState');
   }, this);
 
@@ -120,6 +126,7 @@ update: function() {
   //this.cloudlonely.tilePosition.x -= 0.55;
 	
   //game.debug.body(player);
+  menumusic.stop();
   game.scale.pageAlignHorizontally = true;
   game.scale.pageAlignVertically = true;
   game.scale.refresh();
@@ -275,6 +282,7 @@ function restartGame()
 {
   rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
   rKey.onDown.addOnce(pauseState.restartLevel1, this);
+  level1music.stop();
 	this.game.state.start('pauseMenu');
 }
 

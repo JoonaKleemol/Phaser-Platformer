@@ -17,6 +17,8 @@ var level2State = {
  create: function() {  // Load & Define our game assets
 
     //  We're going to be using physics, so enable the Arcade Physics system
+  level2music = game.add.audio('level2m');
+  level2music.play();
   game.stage.backgroundColor = '#7EC0EE';
   map = game.add.tilemap('map2', 16, 16);
   map.addTilesetImage('tileset', 'tileset2');
@@ -59,6 +61,7 @@ var level2State = {
     rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
     rKey.onDown.addOnce(winState.restartLevel2, this);
 	 db.students.put({levelName: "Level 2", Score: endTime});
+   level2music.stop();
     this.game.state.start('winState');
   }, this);
 
@@ -111,6 +114,7 @@ var level2State = {
 update: function() {
   
   //game.debug.body(player);
+  menumusic.stop();
   game.scale.pageAlignHorizontally = true;
   game.scale.pageAlignVertically = true;
   game.scale.refresh();
@@ -266,6 +270,7 @@ function restartGame()
 {
   rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
   rKey.onDown.addOnce(pauseState.restartLevel2, this);
+  level2music.stop();
   this.game.state.start('pauseMenu');
 }
 

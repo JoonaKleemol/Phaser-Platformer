@@ -15,6 +15,8 @@ var level3State = {
  create: function() {  // Load & Define our game assets
 
     //  We're going to be using physics, so enable the Arcade Physics system
+  level3music = game.add.audio('level3m');
+  level3music.play();
   game.stage.backgroundColor = '#7EC0EE';
   map = game.add.tilemap('map3', 16, 16);
   map.addTilesetImage('tileset', 'tileset3');
@@ -38,6 +40,7 @@ var level3State = {
     rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
     rKey.onDown.addOnce(winState.restartLevel3, this);
 	  db.students.put({levelName: "Level 3", Score: endTime});
+    level3music.stop();
     this.game.state.start('winState');
   }, this);
 
@@ -89,6 +92,7 @@ var level3State = {
 update: function() {
   
   //game.debug.body(player);
+  menumusic.stop();
   game.scale.pageAlignHorizontally = true;
   game.scale.pageAlignVertically = true;
   game.scale.refresh();
@@ -244,6 +248,7 @@ function restartGame()
 {
   rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
   rKey.onDown.addOnce(pauseState.restartLevel3, this);
+  level3music.stop();
   this.game.state.start('pauseMenu');
 }
 

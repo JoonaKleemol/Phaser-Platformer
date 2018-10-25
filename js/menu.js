@@ -1,6 +1,9 @@
 
 var menuState = {
   create: function() {
+
+    menumusic = game.add.audio('menum');
+    menumusic.play();
     game.stage.backgroundColor = '#ffba75';
 
     this.p3 = this.game.add.tileSprite(0,
@@ -33,7 +36,7 @@ var menuState = {
     
 
     var nameLabel = game.add.text(430, 20, 'Platformer',
-      { font: '50px Orbitron', fill: '#fff'});
+      { font: '50px Monoton', fill: '#00a0d1'});
     nameLabel.anchor.x = 0.5;
     
     var lvl1img = this.add.image(186.6, 120, 'level1bg');
@@ -57,18 +60,19 @@ var menuState = {
     lvl3img.anchor.x = 0.5;
     lvl3img.events.onInputDown.add(this.level3, this);      
 
+    var instructionsLabel = game.add.text(430, 250, 'Use [Arrows] to move, double tap [Up] for double jump, [Space] for dash, and [P] for pause',
+      { font: '15px Arial', fill: '#ffffff'}); 
 
-    var instructionsLabel = game.add.text(323, 280, 'Instructions: use arrows to move, double tap up for double jump, space for dash, and p for pause',
-      { font: '15px Arial', fill: '#fff'});
+    var instructionsLabel2 = game.add.text(430, 280, 'Press [K] for leaderboard',
+      { font: '15px Arial', fill: '#00a0d1'});
 
-    var instructions2Label = game.add.text(10, 305, 'This is a speedrun game, so pause doesnt stop the timer, nor can you resume from the same point',
-      { font: '10px Arial', fill: '#fff'});    
 
     kKey = game.input.keyboard.addKey(Phaser.Keyboard.K);
     
     kKey.onDown.addOnce(this.leaderboard, this);
 
     instructionsLabel.anchor.x = 0.5;
+    instructionsLabel2.anchor.x = 0.5;
 
 
 
@@ -82,18 +86,22 @@ update: function() {
 },
 
   level1: function() {
+    menumusic.stop();
     game.state.start('level1');
   }, 
 
   level2: function() {
+    menumusic.stop();
     game.state.start('level2');
   },
 
   level3: function() {
+    menumusic.stop();
     game.state.start('level3');
   },    
 
   leaderboard: function() {
+    menumusic.stop();
     game.state.start('leaderboard');
   },     
  
