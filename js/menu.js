@@ -60,16 +60,16 @@ var menuState = {
 
     var instructionsLabel = game.add.text(430, 280, 'Instructions: use arrows to move, double tap up for double jump, space for dash, and p for pause',
       { font: '15px Arial', fill: '#fff'});
-<<<<<<< HEAD
+
     var instructions2Label = game.add.text(10, 305, 'This is a speedrun game, so pause doesnt stop the timer',
       { font: '10px Arial', fill: '#fff'});    
 
     kKey = game.input.keyboard.addKey(Phaser.Keyboard.K);
     
     kKey.onDown.addOnce(this.leaderboard, this);
-=======
+
     instructionsLabel.anchor.x = 0.5;
->>>>>>> 2d548d78dfb75d6f922a592bffdf91e997f44e80
+
 
 
   },
