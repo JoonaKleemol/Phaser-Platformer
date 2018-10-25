@@ -58,10 +58,10 @@ var menuState = {
     lvl3img.events.onInputDown.add(this.level3, this);      
 
 
-    var instructionsLabel = game.add.text(430, 280, 'Instructions: use arrows to move, double tap up for double jump, space for dash, and p for pause',
+    var instructionsLabel = game.add.text(323, 280, 'Instructions: use arrows to move, double tap up for double jump, space for dash, and p for pause',
       { font: '15px Arial', fill: '#fff'});
 
-    var instructions2Label = game.add.text(10, 305, 'This is a speedrun game, so pause doesnt stop the timer',
+    var instructions2Label = game.add.text(10, 305, 'This is a speedrun game, so pause doesnt stop the timer, nor can you resume from the same point',
       { font: '10px Arial', fill: '#fff'});    
 
     kKey = game.input.keyboard.addKey(Phaser.Keyboard.K);

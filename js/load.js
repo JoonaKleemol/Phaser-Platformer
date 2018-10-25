@@ -30,6 +30,7 @@ var loadState = {
   game.load.image('cloudlonely', 'img/cloud_lonely.png');
   game.load.image('cloudlonely', 'img/cloud_lonely.png');
   game.load.image('cloudlonely', 'img/cloud_lonely.png');
+  game.load.image('leaderboardButton', 'img/leaderboardButton.png');
 
   game.load.spritesheet('runner', 'adventurer-v1.5-Sheet.png', 50, 37);
   game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');

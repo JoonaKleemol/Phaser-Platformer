@@ -61,7 +61,7 @@ var level1State = {
 
     rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
     rKey.onDown.addOnce(winState.restartLevel1, this);
-	db.students.put({levelName: "Level 1", Score: text});
+	  db.students.put({levelName: "Level 1", Score: endTime});
     this.game.state.start('winState');
   }, this);
 
@@ -71,13 +71,12 @@ var level1State = {
   this.scale.pageAlignVertically = true;
   this.scale.pageAlignHorizontally = true;
   this.scale.setScreenSize( true );
-
-this.cloudlonely = this.game.add.tileSprite(0,
+/*this.cloudlonely = this.game.add.tileSprite(0,
       this.game.world.height - this.game.cache.getImage('cloudlonely').height -200,
       this.game.world.width,
       this.game.cache.getImage('cloudlonely').height,
       'cloudlonely'
-    );
+    );*/
     // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'runner');
 
@@ -118,7 +117,7 @@ this.cloudlonely = this.game.add.tileSprite(0,
   
 update: function() {
 
-  this.cloudlonely.tilePosition.x -= 0.55;
+  //this.cloudlonely.tilePosition.x -= 0.55;
 	
   //game.debug.body(player);
   game.scale.pageAlignHorizontally = true;

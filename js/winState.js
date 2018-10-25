@@ -60,8 +60,9 @@ var winState = {
 
     mKey.onDown.addOnce(this.menu, this);
 	
-	//db.students.put({levelName: "Tiina", Score: text, levelName: 'Level 1'});
-	 db.students.orderBy("[Score+levelName]").each(function(student) {console.log(student.levelName+" "+student.Score)});
+	
+    db.students.orderBy('[levelName+Score]').each(function(student) {console.log(student.levelName+" "+student.Score)}); 
+  //db.students.where({levelName: 'level1'}).each(function(student) {console.log(student.levelName+" "+student.Score)});
   },
 
 update: function() {

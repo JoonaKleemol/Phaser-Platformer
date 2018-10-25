@@ -21,12 +21,13 @@
 
 
 <script>
+    //Didn't bother changing the name of the database to game, or the object promise students to players etc...
     var db = new Dexie("student_database");
     
     //db.delete();
     
     db.version(1).stores({
-        students: '++id, [Score+levelName]'
+        students: '++id, Score, levelName, [levelName+Score]'
     });
 
     // Open it
@@ -36,13 +37,19 @@
     
     // Clear old data from students
 	//db.students.clear();
-    // query it
-    db.students.orderBy("[Score+levelName]").each(function(student) {console.log(student.levelName+" "+student.Score)});
+    
+    db.students.where({levelName: 'Level 1'}).each(function(student) {console.log(student.levelName+" "+student.Score)});    
+    //db.students.orderBy('Score').each(function(student) {console.log(student.levelName+" "+student.Score)});
+
+   
 </script>
 	
 	
   </head>
   <body>
+
+
 	<div id="gameDiv"></div>
+  
   </body>
   </html>
