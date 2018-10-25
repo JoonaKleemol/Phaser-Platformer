@@ -32,7 +32,9 @@ var menuState = {
     var instructions2Label = game.add.text(10, 305, 'This is a speedrun game, so pause doesnt stop the timer',
       { font: '10px Arial', fill: '#fff'});    
 
-
+    kKey = game.input.keyboard.addKey(Phaser.Keyboard.K);
+    
+    kKey.onDown.addOnce(this.leaderboard, this);
 
 
   },
@@ -47,7 +49,12 @@ var menuState = {
 
   level3: function() {
     game.state.start('level3');
+  },    
+
+  leaderboard: function() {
+    game.state.start('leaderboard');
   },     
+ 
 
      
 };

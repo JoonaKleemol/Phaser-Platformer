@@ -58,7 +58,7 @@ var level2State = {
 
     rKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
     rKey.onDown.addOnce(winState.restartLevel2, this);
-	db.students.put({levelName: "Level 2", Score: text});
+	 db.students.put({levelName: "Level 2", Score: text});
     this.game.state.start('winState');
   }, this);
 
