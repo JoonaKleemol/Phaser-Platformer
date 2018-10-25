@@ -21,6 +21,16 @@ var loadState = {
   game.load.image('cloudmg3', 'img/clouds_MG_3.png');
   game.load.image('cloudbg', 'img/clouds_BG.png');
   game.load.image('cloudlonely', 'img/cloud_lonely.png');
+  game.load.image('p1', 'img/p1.png');
+  game.load.image('p2', 'img/p2.png');
+  game.load.image('p3', 'img/p3.png');
+  game.load.image('p4', 'img/p4.png');
+  game.load.image('p5', 'img/p5.png');
+  game.load.image('cloudlonely', 'img/cloud_lonely.png');
+  game.load.image('cloudlonely', 'img/cloud_lonely.png');
+  game.load.image('cloudlonely', 'img/cloud_lonely.png');
+  game.load.image('cloudlonely', 'img/cloud_lonely.png');
+
   game.load.spritesheet('runner', 'adventurer-v1.5-Sheet.png', 50, 37);
   game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
