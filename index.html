@@ -37,7 +37,7 @@
     });
     
     // Clear old data from students
-	//db.students.clear();
+	  //db.students.clear();
     
     db.students.where({levelName: 'Level 1'}).each(function(student) {console.log(student.levelName+" "+student.Score)});    
     //db.students.orderBy('Score').each(function(student) {console.log(student.levelName+" "+student.Score)});
